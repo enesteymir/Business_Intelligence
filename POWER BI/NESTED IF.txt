@@ -1,0 +1,4 @@
+Müþteri Taným = IF('MT ZIYARET'[Fark]<31;"Gelen";
+IF(AND('MT ZIYARET'[Fark]>30;'MT ZIYARET'[Fark]<60);"Muhtemel Terk";
+IF(AND('MT ZIYARET'[Fark]>59;'MT ZIYARET'[Fark]<180);"Terk";
+IF(AND('MT ZIYARET'[Fark]>179;'MT ZIYARET'[Fark]<366);"Muhtemel Kayýp";"Kayýp"))))

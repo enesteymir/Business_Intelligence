@@ -1,0 +1,5 @@
+ZSÝlkSatis2 = 
+CALCULATE (
+    FIRSTNONBLANK( 'SATIS'[SatisTarihi]; 1);
+    FILTER ( ALL (SATIS); 'SATIS'[KEY] = 'MT ZIYARET'[key] ) ; FILTER (ALL(SATISTARIH);'SATISTARIH'[Date].[Date] > 'MT ZIYARET'[TAR].[Date])
+)

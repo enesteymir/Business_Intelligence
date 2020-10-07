@@ -1,0 +1,36 @@
+Öncelikle kaynak QVD dosyalarýnýn yerini belirtip, Data çekilememiþ günlerde hata vermesini engellemek adýna, aþaðýdaki tanýmlamalarý yapýyoruz ilk sayfada.
+let qvdpath= 'D:\Qlikview\Data load\' ;
+
+let timestamp =today()-1;
+
+let errormode = 0; 
+
+STOK çekilecek load dosyamýzda yazýlacak örnek sorgu, kaynaktaki QVD dosyalarý Stok44512.qvd þeklinde tarihi numeric þekilde tutuyor ;
+
+for tarih = 43466 to 43470
+
+STOKLAR:
+
+LOAD 
+ANLSUB as Sube, 
+ANLDEP, 
+ANLUR1 & ANLUR2 as URUN, 
+ANLMIK, 
+ANLTAK, 
+ANLBRM, 
+ANLSAT, 
+ANLSAL as ANLSAL_org, 
+ANLSAL2 as ANLSAL,
+ANLSRJ, 
+ANLTAR, 
+date($(tarih)) as  Tarih,
+     
+     ANLSAA, ANLGND
+FROM [$(qvdpath)Stoklar\Stok$(tarih).qvd](qvd);
+NEXT
+
+
+STORE STOKLAR INTO STOKLAR2019.qvd(Qvd);
+
+DROP TABLE STOKLAR; 
+

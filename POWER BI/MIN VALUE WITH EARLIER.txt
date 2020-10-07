@@ -1,0 +1,10 @@
+** Her bir sicil kodu (müþteri) için geldiði ilk ziyaret tarihini bulma
+
+
+IlkZiyaret = 
+CALCULATE(
+    MIN(
+      'Planlý Ziyaret Raporu (AVRUPA BÖLGE)'[Tarih].[Date]);
+      FILTER('Planlý Ziyaret Raporu (AVRUPA BÖLGE)';'Planlý Ziyaret Raporu (AVRUPA BÖLGE)'[Sicil Kodu]=EARLIER('Planlý Ziyaret Raporu (AVRUPA BÖLGE)'[Sicil Kodu])
+   )
+  )

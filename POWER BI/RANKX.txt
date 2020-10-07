@@ -1,0 +1,24 @@
+Yeni Sütun oluþturulur
+
+
+index = 
+RANKX (
+    FILTER (
+        'SAR-SIRALAMALAR',  EARLIER('SAR-SIRALAMALAR'[Date Information.This Week])='SAR-SIRALAMALAR'[Date Information.This Week] 
+    ),'SAR-SIRALAMALAR'[TY Sales Value VAT Excld. TL], ,DESC)
+
+
+** Burada FILTER kýsmý içerisinde, istenildiði kadar EARLIER fonksiyonu eklenebilir. && koyulur aralarýna.
+** Bu hafta içinki cirolarý sýralasýn istedik ondan bunu koyduk,
+** Sonda 1 den baþlamasý için DESC, en sondan baþlamasý için ASC kullanýlýr.
+** 'SAR-SIRALAMALAR' HANGÝ DATASETTE YAPILACAKSA O.
+** TY SALES ise neye göre sýralama olacaksa o deðer
+** seviye olarak belirlemek için, EARLIER a seviyeler de eklenir, Operational Are=Operastional Area gibi.
+** Diyelim ki Yurt Ýçi kendi içinde Yurt Dýþý kendi içinde sýralansýn isteseydik;
+
+index = 
+RANKX (
+    FILTER (
+        'SAR-SIRALAMALAR',  EARLIER('SAR-SIRALAMALAR'[Date Information.This Week])='SAR-SIRALAMALAR'[Date Information.This Week] 
+         && EARLIER('SAR-SIRALAMALAR'[Date Information.Departman])='SAR-SIRALAMALAR'[Date Information.Departman]
+    ),'SAR-SIRALAMALAR'[TY Sales Value VAT Excld. TL], ,DESC)

@@ -1,0 +1,3 @@
+ZSÝlkSatis2 = 20190116
+
+ZSÝlkSatis = Date(Left([ZSÝlkSatis2];4);Right(left([ZSÝlkSatis2];6);2);right([ZSÝlkSatis2];2))

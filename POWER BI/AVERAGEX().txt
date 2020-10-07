@@ -1,0 +1,5 @@
+Count of MüsteriNo average per Tarih = 
+AVERAGEX(
+	KEEPFILTERS(VALUES('TARIH'[Tarih]));
+	CALCULATE(DISTINCTCOUNT('SATIS'[MüsteriNo]))
+          )
