@@ -1,0 +1,4 @@
+
+Text satırındaki değerde istenilen iki karakter arasındaki değeri ayıklamaya yarar.
+
+Text.BetweenDelimiters([ColumnName],"[","]")
